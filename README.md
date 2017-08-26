@@ -10,17 +10,18 @@ Python code for the book *[Artificial Intelligence: A Modern Approach](http://ai
 ## Python 3.4
 
 This code is in Python 3.4 (Python 3.5 and later also works, but Python 2.x does not). You can [install the latest Python version](https://www.python.org/downloads) or use a browser-based Python interpreter such as [repl.it](https://repl.it/languages/python3).
-You can run the code in an IDE, or from the command line with `python -i `*filename*`.py` where the `-i` option puts you in an interactive loop where you can run Python functions.
+You can run the code in an IDE, or from the command line with `python -i filename.py` where the `-i` option puts you in an interactive loop where you can run Python functions.
 
-In addition to the *filename*`.py` files, there are also *filename*`.ipynb` files, which are Jupyter (formerly Ipython) notebooks. You can read these notebooks, and you can also run the code embedded with them. See [jupyter.org](http://jupyter.org/) for instructions on setting up a Jupyter notebook environment.
+In addition to the `filename.py` files, there are also `filename.ipynb` files, which are Jupyter (formerly IPython) notebooks. You can read these notebooks, and you can also run the code embedded with them. See [jupyter.org](http://jupyter.org/) for instructions on setting up a Jupyter notebook environment. Some modules also have `filename_apps.ipynb` files, which are notebooks for applications of the module.
 
 ## Structure of the Project
 
-When complete, this project will have Python code for all the pseudocode algorithms in the book. For each major topic, such as `logic`, we will have the following three files in the main branch:
+When complete, this project will have Python code for all the pseudocode algorithms in the book. For each major topic, such as `nlp`, we will have the following three files in the main branch:
 
-- `logic.py`: Implementations of all the pseudocode algorithms, and necessary support functions/classes/data.
-- `logic.ipynb`: A Jupyter (IPython) notebook that explains and gives examples of how to use the code.
-- `tests/test_logic.py`: A lightweight test suite, using `assert` statements, designed for use with [`py.test`](http://pytest.org/latest/), but also usable on their own.
+- `nlp.py`: Implementations of all the pseudocode algorithms, and necessary support functions/classes/data.
+- `nlp.ipynb`: A Jupyter (IPython) notebook that explains and gives examples of how to use the code.
+- `nlp_apps.ipynb`: A Jupyter notebook that gives example applications of the code.
+- `tests/test_nlp.py`: A lightweight test suite, using `assert` statements, designed for use with [`py.test`](http://pytest.org/latest/), but also usable on their own.
 
 # Index of Algorithms
 
@@ -28,7 +29,7 @@ Here is a table of algorithms, the figure, name of the algorithm in the book and
 
 | **Figure** | **Name (in 3<sup>rd</sup> edition)** | **Name (in repository)** | **File** | **Tests**
 |:--------|:-------------------|:---------|:-----------|:-------|
-| 2.1     | Environment        | `Environment` | [`agents.py`][agents] | |
+| 2.1     | Environment        | `Environment` | [`agents.py`][agents] | Done |
 | 2.1     | Agent              | `Agent` | [`agents.py`][agents] | Done |
 | 2.3     | Table-Driven-Vacuum-Agent | `TableDrivenVacuumAgent` | [`agents.py`][agents] | |
 | 2.7     | Table-Driven-Agent | `TableDrivenAgent` | [`agents.py`][agents] | |
@@ -46,11 +47,11 @@ Here is a table of algorithms, the figure, name of the algorithm in the book and
 | 3.14    | Uniform-Cost-Search        | `uniform_cost_search` | [`search.py`][search] | Done |
 | 3.17    | Depth-Limited-Search | `depth_limited_search` | [`search.py`][search] | Done |
 | 3.18    | Iterative-Deepening-Search | `iterative_deepening_search` | [`search.py`][search] | Done |
-| 3.22    | Best-First-Search  | `best_first_graph_search` | [`search.py`][search] | |
+| 3.22    | Best-First-Search  | `best_first_graph_search` | [`search.py`][search] | Done |
 | 3.24    | A\*-Search        | `astar_search` | [`search.py`][search] | Done |
 | 3.26    | Recursive-Best-First-Search | `recursive_best_first_search` | [`search.py`][search] | Done |
-| 4.2     | Hill-Climbing      | `hill_climbing` | [`search.py`][search] | |
-| 4.5     | Simulated-Annealing | `simulated_annealing` | [`search.py`][search] | |
+| 4.2     | Hill-Climbing      | `hill_climbing` | [`search.py`][search] | Done |
+| 4.5     | Simulated-Annealing | `simulated_annealing` | [`search.py`][search] | Done |
 | 4.8     | Genetic-Algorithm  | `genetic_algorithm` | [`search.py`][search] | Done |
 | 4.11    | And-Or-Graph-Search | `and_or_graph_search` | [`search.py`][search] | Done |
 | 4.21    | Online-DFS-Agent   | `online_dfs_agent` | [`search.py`][search] | |
@@ -60,7 +61,7 @@ Here is a table of algorithms, the figure, name of the algorithm in the book and
 | 6       | CSP                | `CSP` | [`csp.py`][csp] | Done |
 | 6.3     | AC-3               | `AC3` | [`csp.py`][csp] | Done |
 | 6.5     | Backtracking-Search | `backtracking_search` | [`csp.py`][csp] | Done |
-| 6.8     | Min-Conflicts      | `min_conflicts` | [`csp.py`][csp] | |
+| 6.8     | Min-Conflicts      | `min_conflicts` | [`csp.py`][csp] | Done |
 | 6.11    | Tree-CSP-Solver    | `tree_csp_solver` | [`csp.py`][csp] | Done |
 | 7       | KB                 | `KB` | [`logic.py`][logic] | Done |
 | 7.1     | KB-Agent           | `KB_Agent` | [`logic.py`][logic] | Done |
@@ -71,7 +72,7 @@ Here is a table of algorithms, the figure, name of the algorithm in the book and
 | 7.15    | PL-FC-Entails?     | `pl_fc_resolution` | [`logic.py`][logic] | Done |
 | 7.17    | DPLL-Satisfiable?  | `dpll_satisfiable` | [`logic.py`][logic] | Done |
 | 7.18    | WalkSAT            | `WalkSAT` | [`logic.py`][logic] | Done |
-| 7.20    | Hybrid-Wumpus-Agent    | `HybridWumpusAgent` | [`logic.py`][logic]\* | |
+| 7.20    | Hybrid-Wumpus-Agent    | `HybridWumpusAgent` | | |
 | 7.22    | SATPlan            | `SAT_plan`  | [`logic.py`][logic] | Done |
 | 9       | Subst              | `subst` | [`logic.py`][logic] | Done |
 | 9.1     | Unify              | `unify` | [`logic.py`][logic] | Done |
@@ -102,7 +103,7 @@ Here is a table of algorithms, the figure, name of the algorithm in the book and
 | 16.9    | Information-Gathering-Agent |          |              |
 | 17.4    | Value-Iteration    | `value_iteration` | [`mdp.py`][mdp] | Done |
 | 17.7    | Policy-Iteration   | `policy_iteration` | [`mdp.py`][mdp] | Done |
-| 17.7    | POMDP-Value-Iteration  |           |        | |
+| 17.9    | POMDP-Value-Iteration  |           |        | |
 | 18.5    | Decision-Tree-Learning | `DecisionTreeLearner` | [`learning.py`][learning] | Done |
 | 18.8    | Cross-Validation   | `cross_validation` | [`learning.py`][learning] | |
 | 18.11   | Decision-List-Learning | `DecisionListLearner` | [`learning.py`][learning]\* | |
@@ -110,13 +111,13 @@ Here is a table of algorithms, the figure, name of the algorithm in the book and
 | 18.34   | AdaBoost           | `AdaBoost` | [`learning.py`][learning] | |
 | 19.2    | Current-Best-Learning | `current_best_learning` | [`knowledge.py`](knowledge.py) | Done |
 | 19.3    | Version-Space-Learning | `version_space_learning` | [`knowledge.py`](knowledge.py) | Done |
-| 19.8    | Minimal-Consistent-Det |          | |
-| 19.12   | FOIL               |          | |
+| 19.8    | Minimal-Consistent-Det | `minimal_consistent_det` | [`knowledge.py`](knowledge.py) | Done |
+| 19.12   | FOIL               | `FOIL_container` | [`knowledge.py`](knowledge.py) | Done |
 | 21.2    | Passive-ADP-Agent  | `PassiveADPAgent` | [`rl.py`][rl] | Done |
 | 21.4    | Passive-TD-Agent   | `PassiveTDAgent` | [`rl.py`][rl] | Done |
 | 21.8    | Q-Learning-Agent   | `QLearningAgent` | [`rl.py`][rl] | Done |
 | 22.1    | HITS               | `HITS`  | [`nlp.py`][nlp] | Done |
-| 23      | Chart-Parse        | `Chart` | [`nlp.py`][nlp] | |
+| 23      | Chart-Parse        | `Chart` | [`nlp.py`][nlp] | Done |
 | 23.5    | CYK-Parse          | `CYK_parse` | [`nlp.py`][nlp] | Done |
 | 25.9    | Monte-Carlo-Localization| `monte_carlo_localization` | [`probability.py`][probability] | Done |
 

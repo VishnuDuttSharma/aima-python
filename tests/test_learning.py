@@ -105,6 +105,20 @@ def test_naive_bayes():
     assert nBC([6, 5, 3, 1.5]) == "versicolor"
     assert nBC([7, 3, 6.5, 2]) == "virginica"
 
+    # Simple
+    data1 = 'a'*50 + 'b'*30 + 'c'*15
+    dist1 = CountingProbDist(data1)
+    data2 = 'a'*30 + 'b'*45 + 'c'*20
+    dist2 = CountingProbDist(data2)
+    data3 = 'a'*20 + 'b'*20 + 'c'*35
+    dist3 = CountingProbDist(data3)
+
+    dist = {('First', 0.5): dist1, ('Second', 0.3): dist2, ('Third', 0.2): dist3}
+    nBS = NaiveBayesLearner(dist, simple=True)
+    assert nBS('aab') == 'First'
+    assert nBS(['b', 'b']) == 'Second'
+    assert nBS('ccbcc') == 'Third'
+
 
 def test_k_nearest_neighbors():
     iris = DataSet(name="iris")
@@ -152,7 +166,6 @@ def test_decision_tree_learner():
 
 
 def test_random_forest():
-    random.seed("aima-python")
     iris = DataSet(name="iris")
     rF = RandomForest(iris)
     assert rF([5, 3, 1, 0.1]) == "setosa"
@@ -161,19 +174,21 @@ def test_random_forest():
 
 
 def test_neural_network_learner():
-    random.seed("aima-python")
     iris = DataSet(name="iris")
     classes = ["setosa", "versicolor", "virginica"]
     iris.classes_to_numbers(classes)
     nNL = NeuralNetLearner(iris, [5], 0.15, 75)
-    tests = [([5, 3, 1, 0.1], 0),
-             ([5, 3.5, 1, 0], 0),
-             ([6, 3, 4, 1.1], 1),
-             ([6, 2, 3.5, 1], 1),
-             ([7.5, 4, 6, 2], 2),
-             ([7, 3, 6, 2.5], 2)]
-    assert grade_learner(nNL, tests) >= 2/3
-    assert err_ratio(nNL, iris) < 0.25
+    tests = [([5.0, 3.1, 0.9, 0.1], 0),
+             ([5.1, 3.5, 1.0, 0.0], 0),
+             ([4.9, 3.3, 1.1, 0.1], 0),
+             ([6.0, 3.0, 4.0, 1.1], 1),
+             ([6.1, 2.2, 3.5, 1.0], 1),
+             ([5.9, 2.5, 3.3, 1.1], 1),
+             ([7.5, 4.1, 6.2, 2.3], 2),
+             ([7.3, 4.0, 6.1, 2.4], 2),
+             ([7.0, 3.3, 6.1, 2.5], 2)]
+    assert grade_learner(nNL, tests) >= 1/3
+    assert err_ratio(nNL, iris) < 0.2
 
 
 def test_perceptron():
