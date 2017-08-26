@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-from IPython.display import HTML, display
-
-=======
->>>>>>> upstream/master
 from inspect import getsource
 
 from utils import argmax, argmin
